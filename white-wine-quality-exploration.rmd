@@ -28,6 +28,11 @@ library(ggplot2)
 
 ```{r echo=FALSE, Load_the_Data}
 # Load the Data
+getwd()
+list.files()
+
+wineData <- read.csv("wineQualityWhites.csv")
+
 
 ```
 
