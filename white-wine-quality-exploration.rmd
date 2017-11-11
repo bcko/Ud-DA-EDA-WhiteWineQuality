@@ -28,7 +28,6 @@ list.files()
 wineData <- read.csv("wineQualityWhites.csv")
 names(wineData)
 
-summary(wineData)
 ```
 
 # White Wine Quality Dataset Information 
@@ -101,8 +100,14 @@ forget to add a comment after each plot or closely-related group of plots!
 There should be multiple code chunks and text sections; the first one below is
 just to help you get started.
 
-```{r echo=FALSE, Univariate_Plots}
 
+```{r echo=FALSE, wine_data_summary}
+summary(wineData)
+```
+
+```{r echo=FALSE, histogram_of_wine_quality}
+ggplot(data = wineData, mapping = aes(x=quality)) + 
+  geom_histogram(binwidth=1)
 ```
 
 > **Tip**: Make sure that you leave a blank line between the start / end of
