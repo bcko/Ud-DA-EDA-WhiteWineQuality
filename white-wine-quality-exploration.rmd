@@ -17,6 +17,7 @@ White Wine Quality Exploration by Byungcheon Ko
 library(ggplot2)
 library(knitr)
 library(dplyr)
+
 ```
 
 ```{r echo=FALSE, Load_the_Data}
@@ -27,7 +28,7 @@ list.files()
 wineData <- read.csv("wineQualityWhites.csv")
 names(wineData)
 
-
+summary(wineData)
 ```
 
 # White Wine Quality Dataset Information 
