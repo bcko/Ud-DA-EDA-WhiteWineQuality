@@ -93,24 +93,32 @@ P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis.
 
 # Univariate Plots Section
 
-```{r echo=FALSE, wine_data_summary}
+```{r echo=TRUE, wine_data_summary}
 summary(wineData)
 ```
 
-```{r echo=FALSE, histogram_of_wine_quality}
+
+
+```{r echo=TRUE, histogram_of_wine_quality}
 ggplot(data = wineData, mapping = aes(x=quality)) + 
   geom_histogram(binwidth=1)
 ```
+## Fixed Acidity
+
+## Volatile Acidity
+
+
+
+
 
 # Univariate Analysis
 
 ### What is the structure of your dataset?
-the dataset has 4898 observations. Each observation represents a white wine and that white wine has 11 attributes (fixed acidity, volatile acidity, ), and 1 output variable (white wine quality)
+the dataset has 4898 observations. Each observation represents a white wine and that white wine has 11 attributes (1.fixed acidity, 2.volatile acidity, 3.citric acid, 4.residual sugar, 5.chlorides, 6.free sulfur dioxide, 7.total sulfur dioxide, 8.density, 9.pH, 10.sulphates, 11.alcohol), and 1 output variable (white wine quality)
 
 ### What is/are the main feature(s) of interest in your dataset?
 
-### What other features in the dataset do you think will help support your \
-investigation into your feature(s) of interest?
+### What other features in the dataset do you think will help support your investigation into your feature(s) of interest?
 
 ### Did you create any new variables from existing variables in the dataset?
 
