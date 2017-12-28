@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1514500607853.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2321164317",
+    "id" : "3EB6B8CE",
+    "lastKnownWriteTime" : 1514501433,
+    "last_content_update" : 1514501452557,
+    "path" : "~/GitHub/Ud-DA-EDA-WhiteWineQuality/white-wine-quality-exploration.rmd",
+    "project_path" : "white-wine-quality-exploration.rmd",
+    "properties" : {
+        "cursorPosition" : "18,14",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

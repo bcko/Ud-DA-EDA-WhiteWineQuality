@@ -121,154 +121,41 @@ $(document).ready(function () {
 </div>
 
 
-<div id="white-wine-quality-exploration-by-byungcheon-ko" class="section level1">
-<h1>White Wine Quality Exploration by Byungcheon Ko</h1>
-<pre><code>## [1] &quot;C:/Users/gobck/Documents/GitHub/Ud-DA-EDA-WhiteWineQuality&quot;</code></pre>
-<pre><code>## [1] &quot;ProjectDescription.md&quot;              
-## [2] &quot;projecttemplate.html&quot;               
-## [3] &quot;projecttemplate.rmd&quot;                
-## [4] &quot;README.md&quot;                          
-## [5] &quot;Ud-DA-EDA-WhiteWineQuality.Rproj&quot;   
-## [6] &quot;white-wine-quality-exploration.html&quot;
-## [7] &quot;white-wine-quality-exploration.rmd&quot; 
-## [8] &quot;wineQualityInfo.md&quot;                 
-## [9] &quot;wineQualityWhites.csv&quot;</code></pre>
-<pre><code>##  [1] &quot;X&quot;                    &quot;fixed.acidity&quot;        &quot;volatile.acidity&quot;    
-##  [4] &quot;citric.acid&quot;          &quot;residual.sugar&quot;       &quot;chlorides&quot;           
-##  [7] &quot;free.sulfur.dioxide&quot;  &quot;total.sulfur.dioxide&quot; &quot;density&quot;             
-## [10] &quot;pH&quot;                   &quot;sulphates&quot;            &quot;alcohol&quot;             
-## [13] &quot;quality&quot;</code></pre>
-</div>
-<div id="white-wine-quality-dataset-information" class="section level1">
-<h1>White Wine Quality Dataset Information</h1>
-<div id="sources" class="section level2">
-<h2>Sources</h2>
-<p>Created by: Paulo Cortez (Univ. Minho), Antonio Cerdeira, Fernando Almeida, Telmo Matos and Jose Reis (CVRVV) @ 2009</p>
-</div>
-<div id="attribute-information" class="section level2">
-<h2>Attribute Information</h2>
-<div id="input-variables-based-on-physicochemical-tests" class="section level3">
-<h3>Input variables (based on physicochemical tests):</h3>
-<ol style="list-style-type: decimal">
-<li>fixed acidity (tartaric acid - g / dm^3)</li>
-<li>volatile acidity (acetic acid - g / dm^3)</li>
-<li>citric acid (g / dm^3)</li>
-<li>residual sugar (g / dm^3)</li>
-<li>chlorides (sodium chloride - g / dm^3</li>
-<li>free sulfur dioxide (mg / dm^3)</li>
-<li>total sulfur dioxide (mg / dm^3)</li>
-<li>density (g / cm^3)</li>
-<li>pH</li>
-<li>sulphates (potassium sulphate - g / dm3)</li>
-<li>alcohol (% by volume) ### Output variable (based on sensory data):</li>
-<li>quality (score between 0 and 10) ### For more information, read [Cortez et al., 2009].</li>
-</ol>
-</div>
-</div>
-<div id="description-of-attributes" class="section level2">
-<h2>Description of Attributes</h2>
-<div id="input-variables-based-on-physicochemical-tests-1" class="section level3">
-<h3>Input variables (based on physicochemical tests):</h3>
-<ol style="list-style-type: decimal">
-<li>fixed acidity: most acids involved with wine or fixed or nonvolatile (do not evaporate readily)</li>
-<li>volatile acidity: the amount of acetic acid in wine, which at too high of levels can lead to an unpleasant, vinegar taste</li>
-<li>citric acid: found in small quantities, citric acid can add ‘freshness’ and flavor to wines</li>
-<li>residual sugar: the amount of sugar remaining after fermentation stops, it’s rare to find wines with less than 1 gram/liter and wines with greater than 45 grams/liter are considered sweet</li>
-<li>chlorides: the amount of salt in the wine</li>
-<li>free sulfur dioxide: the free form of SO2 exists in equilibrium between molecular SO2 (as a dissolved gas) and bisulfite ion; it prevents microbial growth and the oxidation of wine</li>
-<li>total sulfur dioxide: amount of free and bound forms of S02; in low concentrations, SO2 is mostly undetectable in wine, but at free SO2 concentrations over 50 ppm, SO2 becomes evident in the nose and taste of wine</li>
-<li>density: the density of water is close to that of water depending on the percent alcohol and sugar content</li>
-<li>pH: describes how acidic or basic a wine is on a scale from 0 (very acidic) to 14 (very basic); most wines are between 3-4 on the pH scale</li>
-<li>sulphates: a wine additive which can contribute to sulfur dioxide gas (S02) levels, wich acts as an antimicrobial and antioxidant</li>
-<li>alcohol: the percent alcohol content of the wine ### Output variable (based on sensory data):</li>
-<li>quality (score between 0 and 10)</li>
-</ol>
-</div>
-<div id="relevant-information" class="section level3">
-<h3>Relevant Information</h3>
-<p>The two datasets are related to red and white variants of the Portuguese “Vinho Verde” wine. For more details, consult: <a href="http://www.vinhoverde.pt/en/" class="uri">http://www.vinhoverde.pt/en/</a> or the reference [Cortez et al., 2009]. Due to privacy and logistic issues, only physicochemical (inputs) and sensory (the output) variables are available (e.g. there is no data about grape types, wine brand, wine selling price, etc.).</p>
-<p>These datasets can be viewed as classification or regression tasks. The classes are ordered and not balanced (e.g. there are munch more normal wines than excellent or poor ones). Outlier detection algorithms could be used to detect the few excellent or poor wines. Also, we are not sure if all input variables are relevant. So it could be interesting to test feature selection methods.</p>
-</div>
-</div>
-<div id="citation" class="section level2">
-<h2>Citation</h2>
-<p>P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis. Modeling wine preferences by data mining from physicochemical properties. In Decision Support Systems, Elsevier, 47(4):547-553. ISSN: 0167-9236.</p>
-<p>Available at: <span class="citation">[@Elsevier]</span> <a href="http://dx.doi.org/10.1016/j.dss.2009.05.016" class="uri">http://dx.doi.org/10.1016/j.dss.2009.05.016</a> [Pre-press (pdf)] <a href="http://www3.dsi.uminho.pt/pcortez/winequality09.pdf" class="uri">http://www3.dsi.uminho.pt/pcortez/winequality09.pdf</a> [bib] <a href="http://www3.dsi.uminho.pt/pcortez/dss09.bib" class="uri">http://www3.dsi.uminho.pt/pcortez/dss09.bib</a></p>
-</div>
+<div id="title-by-your_name_here" class="section level1">
+<h1>TITLE by YOUR_NAME_HERE</h1>
+<blockquote>
+<p><strong>Tip</strong>: You will see quoted sections like this throughout the template to help you construct your report. Make sure that you remove these notes before you finish and submit your project!</p>
+</blockquote>
+<blockquote>
+<p><strong>Tip</strong>: One of the requirements of this project is that your code follows good formatting techniques, including limiting your lines to 80 characters or less. If you’re using RStudio, go into Preferences &gt; Code &gt; Display to set up a margin line to help you keep track of this guideline!</p>
+</blockquote>
+<blockquote>
+<p><strong>Tip</strong>: Before you create any plots, it is a good idea to provide a short introduction into the dataset that you are planning to explore. Replace this quoted text with that general information!</p>
+</blockquote>
 </div>
 <div id="univariate-plots-section" class="section level1">
 <h1>Univariate Plots Section</h1>
-<pre><code>##        X        fixed.acidity    volatile.acidity  citric.acid    
-##  Min.   :   1   Min.   : 3.800   Min.   :0.0800   Min.   :0.0000  
-##  1st Qu.:1225   1st Qu.: 6.300   1st Qu.:0.2100   1st Qu.:0.2700  
-##  Median :2450   Median : 6.800   Median :0.2600   Median :0.3200  
-##  Mean   :2450   Mean   : 6.855   Mean   :0.2782   Mean   :0.3342  
-##  3rd Qu.:3674   3rd Qu.: 7.300   3rd Qu.:0.3200   3rd Qu.:0.3900  
-##  Max.   :4898   Max.   :14.200   Max.   :1.1000   Max.   :1.6600  
-##  residual.sugar     chlorides       free.sulfur.dioxide
-##  Min.   : 0.600   Min.   :0.00900   Min.   :  2.00     
-##  1st Qu.: 1.700   1st Qu.:0.03600   1st Qu.: 23.00     
-##  Median : 5.200   Median :0.04300   Median : 34.00     
-##  Mean   : 6.391   Mean   :0.04577   Mean   : 35.31     
-##  3rd Qu.: 9.900   3rd Qu.:0.05000   3rd Qu.: 46.00     
-##  Max.   :65.800   Max.   :0.34600   Max.   :289.00     
-##  total.sulfur.dioxide    density             pH          sulphates     
-##  Min.   :  9.0        Min.   :0.9871   Min.   :2.720   Min.   :0.2200  
-##  1st Qu.:108.0        1st Qu.:0.9917   1st Qu.:3.090   1st Qu.:0.4100  
-##  Median :134.0        Median :0.9937   Median :3.180   Median :0.4700  
-##  Mean   :138.4        Mean   :0.9940   Mean   :3.188   Mean   :0.4898  
-##  3rd Qu.:167.0        3rd Qu.:0.9961   3rd Qu.:3.280   3rd Qu.:0.5500  
-##  Max.   :440.0        Max.   :1.0390   Max.   :3.820   Max.   :1.0800  
-##     alcohol         quality     
-##  Min.   : 8.00   Min.   :3.000  
-##  1st Qu.: 9.50   1st Qu.:5.000  
-##  Median :10.40   Median :6.000  
-##  Mean   :10.51   Mean   :5.878  
-##  3rd Qu.:11.40   3rd Qu.:6.000  
-##  Max.   :14.20   Max.   :9.000</code></pre>
-<p><img src="data:image/png;base64,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" width="672" /> ## Fixed Acidity</p>
-<div id="volatile-acidity" class="section level2">
-<h2>Volatile Acidity</h2>
-</div>
-<div id="citric-acid" class="section level2">
-<h2>Citric Acid</h2>
-</div>
-<div id="residual-sugar" class="section level2">
-<h2>Residual Sugar</h2>
-</div>
-<div id="chlorides" class="section level2">
-<h2>Chlorides</h2>
-</div>
-<div id="free-sulfur-dioxide" class="section level2">
-<h2>Free Sulfur Dioxide</h2>
-</div>
-<div id="total-sulfur-dioxide" class="section level2">
-<h2>Total Sulfur Dioxide</h2>
-</div>
-<div id="density" class="section level2">
-<h2>Density</h2>
-</div>
-<div id="ph" class="section level2">
-<h2>pH</h2>
-</div>
-<div id="sulphates" class="section level2">
-<h2>Sulphates</h2>
-</div>
-<div id="alcohol" class="section level2">
-<h2>Alcohol</h2>
-</div>
+<blockquote>
+<p><strong>Tip</strong>: In this section, you should perform some preliminary exploration of your dataset. Run some summaries of the data and create univariate plots to understand the structure of the individual variables in your dataset. Don’t forget to add a comment after each plot or closely-related group of plots! There should be multiple code chunks and text sections; the first one below is just to help you get started.</p>
+</blockquote>
+<blockquote>
+<p><strong>Tip</strong>: Make sure that you leave a blank line between the start / end of each code block and the end / start of your Markdown text so that it is formatted nicely in the knitted text. Note as well that text on consecutive lines is treated as a single space. Make sure you have a blank line between your paragraphs so that they too are formatted for easy readability.</p>
+</blockquote>
 </div>
 <div id="univariate-analysis" class="section level1">
 <h1>Univariate Analysis</h1>
+<blockquote>
+<p><strong>Tip</strong>: Now that you’ve completed your univariate explorations, it’s time to reflect on and summarize what you’ve found. Use the questions below to help you gather your observations and add your own if you have other thoughts!</p>
+</blockquote>
 <div id="what-is-the-structure-of-your-dataset" class="section level3">
 <h3>What is the structure of your dataset?</h3>
-<p>the dataset has 4898 observations. Each observation represents a white wine and that white wine has 11 attributes (1.fixed acidity, 2.volatile acidity, 3.citric acid, 4.residual sugar, 5.chlorides, 6.free sulfur dioxide, 7.total sulfur dioxide, 8.density, 9.pH, 10.sulphates, 11.alcohol), and 1 output variable (white wine quality)</p>
 </div>
 <div id="what-isare-the-main-features-of-interest-in-your-dataset" class="section level3">
 <h3>What is/are the main feature(s) of interest in your dataset?</h3>
 </div>
 <div id="what-other-features-in-the-dataset-do-you-think-will-help-support-your-investigation-into-your-features-of-interest" class="section level3">
-<h3>What other features in the dataset do you think will help support your investigation into your feature(s) of interest?</h3>
+<h3>What other features in the dataset do you think will help support your<br />
+investigation into your feature(s) of interest?</h3>
 </div>
 <div id="did-you-create-any-new-variables-from-existing-variables-in-the-dataset" class="section level3">
 <h3>Did you create any new variables from existing variables in the dataset?</h3>
