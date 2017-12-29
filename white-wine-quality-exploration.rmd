@@ -1,5 +1,5 @@
- White Wine Quality Exploration by Byungcheon Ko
-========================================================
+# White Wine Quality Exploration by Byungcheon Ko
+
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, packages}
 # Load all of the packages that you end up using in your analysis in this code
@@ -22,11 +22,11 @@ library(dplyr)
 
 ```{r echo=FALSE, Load_the_Data}
 # Load the Data
-getwd()
-list.files()
+# getwd()
+# list.files()
 
 wineData <- read.csv("wineQualityWhites.csv")
-names(wineData)
+# names(wineData)
 
 ```
 

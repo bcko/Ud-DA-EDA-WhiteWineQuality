@@ -5,14 +5,14 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "2321164317",
+    "hash" : "0",
     "id" : "3EB6B8CE",
-    "lastKnownWriteTime" : 1514501433,
-    "last_content_update" : 1514501452557,
+    "lastKnownWriteTime" : 1514501927,
+    "last_content_update" : 1514501927408,
     "path" : "~/GitHub/Ud-DA-EDA-WhiteWineQuality/white-wine-quality-exploration.rmd",
     "project_path" : "white-wine-quality-exploration.rmd",
     "properties" : {
-        "cursorPosition" : "18,14",
+        "cursorPosition" : "32,0",
         "scrollLine" : "0"
     },
     "relative_order" : 1,
