@@ -192,8 +192,8 @@ tsd1 = plot.hist('total.sulfur.dioxide', wineData, 100) +
   quantile(wineData$total.sulfur.dioxide, 0.99)))
 
 grid.arrange(fsd, tsd, fsd1, tsd1 )
-#summary(wine$free.sulfur.dioxide)
-#summary(wine$total.sulfur.dioxide)
+#summary(wineData$free.sulfur.dioxide)
+#summary(wineData$total.sulfur.dioxide)
 ```
 
 
@@ -202,23 +202,56 @@ grid.arrange(fsd, tsd, fsd1, tsd1 )
 ## Density
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 d30 = plot.hist('density', wineData, 30)
-ds = ggplot(wineDAta, aes(y = density, x = 1)) + 
+ds = ggplot(wineData, aes(y = density, x = 1)) + 
   geom_jitter(aes(x = 1, y = density), alpha = 0.1) +
   geom_boxplot(color = 'blue', alpha = 1/2) + coord_flip()
 d100 = plot.hist('density', wineData, 100) 
 grid.arrange(d30, ds, d100)
-#summary(wine$density)
+#summary(wineData$density)
 diqr<-0.9961 - 0.9917 # finding iqr for outlier purposes when graphing later
 ```
 
 
 ## pH
 
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+ph = plot.hist('pH', wineData, 30)
+ph1 =  ggplot(wineData, aes(y = pH, x = 1)) + 
+  geom_jitter(aes(x = 1, y = pH), alpha = 0.2) +
+  geom_boxplot(color = 'blue', alpha = 1/4) + coord_flip()
+ph2 = plot.hist('pH', wineData, 100) 
+grid.arrange(ph, ph1, ph2)
+#summary(wineData$pH)
+```
+
 ## Sulphates
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+s0 = plot.hist('sulphates', wineData, 30)
+s1 =  ggplot(wineData, aes(y = sulphates, x = 1)) + 
+  geom_jitter(aes(x = 1, y = sulphates), alpha = 0.15) +
+  geom_boxplot(color = 'blue', alpha = 1/4) + coord_flip()
+s2 = plot.hist('sulphates', wineData, 75) 
+grid.arrange(s0, s1, s2)
+#summary(wineData$sulphates)
+```
+
 
 ## Alcohol
 
-
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+a0 = plot.hist('alcohol', wineData, 30)
+a1 =  ggplot(wineData, aes(y = alcohol, x = 1)) + 
+  geom_jitter(aes(x = 1, y = alcohol), alpha = 0.15) +
+  geom_boxplot(color = 'blue', alpha = 0.1) + coord_flip()
+a2 = plot.hist('alcohol', wineData, 70) 
+alog = plot.hist('alcohol', wineData, 75) +
+  scale_x_continuous(trans = log10_trans(), 
+                     limits = c(quantile(wineData$alcohol, 0.01),
+                                quantile(wineData$alcohol, 0.99)),
+        breaks=c(9, 10, 11, 12, 13))
+grid.arrange(a0, a1, a2)
+#summary(wineData$alcohol)
+```
 
 # Univariate Analysis
 
