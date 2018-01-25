@@ -17,7 +17,10 @@
 library(ggplot2)
 library(knitr)
 library(dplyr)
-
+library(gridExtra)
+library(GGally)
+library(scales)
+library(RColorBrewer)
 ```
 
 ```{r echo=FALSE, Load_the_Data}
@@ -109,12 +112,45 @@ str(wineData)
 ggplot(data = wineData, mapping = aes(x=quality)) + 
   geom_histogram(binwidth=1)
 ```
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(aes(x = quality), data = wineData) + geom_bar() + 
+  scale_x_continuous(breaks = seq(2, 10, 1))
+```
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+plot.hist <- function(x.var, df, bs) 
+  {
+  ggplot(df, aes_string(x = x.var)) + geom_histogram(bins = bs)
+}
+```
+
+
 ## Fixed Acidity
+hisogram for fixed acidity
+
+```{r, echo=FALSE, messages=FALSE, warnings=FALSE }
+fah = plot.hist('fixed.acidity', wineData, 100)  
+fah1 = plot.hist('fixed.acidity', wineData, 100) + 
+  scale_x_continuous(limits = c(4, 12), breaks = seq(4, 12, 1))
+grid.arrange(fah, fah1)
+#summary(wineData$fixed.acidity)
+
+```
+
 
 ## Volatile Acidity
-
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+plot.hist('volatile.acidity', wineData, 100) +
+  scale_x_continuous(limits = c(0, 0.75), breaks=seq(0, 0.75, 0.1))
+```
 
 ## Citric Acid
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+plot.hist('citric.acid', wineData, 100) +
+  scale_x_continuous(limits = c(0, 1.0), breaks = seq(0, 1.0, .1))
+summary(wineData$citric.acid)
+```
 
 ## Residual Sugar
 

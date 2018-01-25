@@ -1,5 +1,0 @@
-"0","ggplot(data = wineData, mapping = aes(x=quality)) + "
-"0","  geom_histogram(binwidth=1)"
-"2","Error in ggplot(data = wineData, mapping = aes(x = quality)) : 
-  could not find function ""ggplot""
-"
