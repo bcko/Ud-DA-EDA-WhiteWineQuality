@@ -99,6 +99,12 @@ summary(wineData)
 
 
 
+```{r echo=FALSE, wine_data_variable_types}
+str(wineData)
+```
+
+
+
 ```{r echo=FALSE, histogram_of_wine_quality}
 ggplot(data = wineData, mapping = aes(x=quality)) + 
   geom_histogram(binwidth=1)
