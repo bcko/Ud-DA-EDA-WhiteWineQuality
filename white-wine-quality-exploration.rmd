@@ -107,6 +107,12 @@ str(wineData)
 ```
 
 
+we can remove x since it is not necessary
+```{r, echo= FALSE, message=FALSE, warning=FALSE}
+wineData <- subset(wineData, select=-X)
+```
+
+
 
 ```{r echo=FALSE, histogram_of_wine_quality}
 ggplot(data = wineData, mapping = aes(x=quality)) + 
@@ -119,14 +125,22 @@ ggplot(aes(x = quality), data = wineData) + geom_bar() +
 
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
-plot.hist <- function(x.var, df, bs) 
+plot.hist <- function(xvariable, dataframe, bins) 
   {
-  ggplot(df, aes_string(x = x.var)) + geom_histogram(bins = bs)
+  ggplot(dataframe, aes_string(x = xvariable)) + geom_histogram(bins = bins)
 }
 ```
 
 
 ## Fixed Acidity
+
+Let's look at the summary of fixed acidity.
+```{r, echo=FALSE, messages=FALSE, warnings=FALSE }
+summary(wineData$fixed.acidity)
+```
+fixed acidity has median = 6.800 and mean = 6.855
+
+
 hisogram for fixed acidity
 
 ```{r, echo=FALSE, messages=FALSE, warnings=FALSE }
@@ -134,40 +148,59 @@ fah = plot.hist('fixed.acidity', wineData, 100)
 fah1 = plot.hist('fixed.acidity', wineData, 100) + 
   scale_x_continuous(limits = c(4, 12), breaks = seq(4, 12, 1))
 grid.arrange(fah, fah1)
-#summary(wineData$fixed.acidity)
-
 ```
 
 
 ## Volatile Acidity
+Let's look at the summary of volatile acidity
+```{r, echo=FALSE, messages=FALSE, warnings=FALSE }
+summary(wineData$volatile.acidity)
+```
+volatile acidity has median = 0.2600 and mean = 0.2782
+
+
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 plot.hist('volatile.acidity', wineData, 100) +
   scale_x_continuous(limits = c(0, 0.75), breaks=seq(0, 0.75, 0.1))
 ```
 
 ## Citric Acid
+Let's look at the summary of citric acid
+```{r, echo=FALSE, messages=FALSE, warnings=FALSE }
+summary(wineData$citric.acid)
+```
+citric acid has median = 0.3200 and mean = 0.3342
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 plot.hist('citric.acid', wineData, 100) +
   scale_x_continuous(limits = c(0, 1.0), breaks = seq(0, 1.0, .1))
-summary(wineData$citric.acid)
+
 ```
 
 ## Residual Sugar
+Let's look at the summary of residual sugar
+```{r, echo=FALSE, messages=FALSE, warnings=FALSE }
+summary(wineData$residual.sugar)
+```
+residual sugar has median = 5.200 and mean = 6.391
+
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 rs = plot.hist('residual.sugar', wineData, 75) 
 logrs = plot.hist('residual.sugar', wineData, 75)  + 
   scale_x_continuous(trans = log10_trans(), breaks=c(0, 1.5, 3, 10, 20, 60))
-#summary(wine$residual.sugar)
 grid.arrange(rs, logrs)
 rsiqr<-8.2 - 1.7 #using 1st & 3rd quartile from summary to find IQR; we'll use this later for outliers
 ```
 
 
 ## Chlorides
+
+
+
 ```{r, echo= FALSE, message=FALSE, warning=FALSE}
 c = plot.hist('chlorides', wineData, 75)
 c1 = plot.hist('chlorides', wineData, 75) + scale_x_continuous(limits = c(0, 0.2))
-#summary(wine$chlorides)
+#summary(wineData$chlorides)
 grid.arrange(c, c1)
 ```
 
@@ -333,27 +366,75 @@ units), and good aesthetic choices (e.g. color, transparency). After each plot,
 make sure you justify why you chose each plot by describing what it shows.
 
 ### Plot One
-```{r echo=FALSE, Plot_One}
-
+```{r echo=FALSE, warning=FALSE, message=FALSE, Plot_One}
+ggplot(aes(x = factor(quality), y = alcohol), data = wineData) + geom_boxplot() +
+  stat_summary(fun.y = mean, size = 3, color = 'green', geom = 'point') + 
+  ylab("Alcohol (percentage of volume)") +
+  xlab("Wine Quality (scaled from 0-10)") +
+  ggtitle("Alcohol Content by Wine Quality") +
+  geom_hline(yintercept = 10.51, color = 'green', alpha = 0.3) + 
+  geom_hline(yintercept = 10.4, alpha = 0.4 ) +
+  theme(plot.title = element_text(hjust = 0.5, size = 19, face = 'bold'),
+        panel.border = element_rect(colour = "black", fill = NA)) 
+                                                                         
 ```
+
 
 ### Description One
 
 
 ### Plot Two
-```{r echo=FALSE, Plot_Two}
-
+```{r echo=FALSE, warning=FALSE, message=FALSE, Plot_Two}
+ggplot(aes(x = chlorides, y = alcohol),
+       data = subset(wineData, wineData$quality != 6)) + 
+  geom_point(aes(color = factor(quality))) +
+  labs(x = expression(Chlorides~(g/dm^3)),
+       y = "Alcohol (percentage of volume)") + 
+  scale_color_brewer(type = 'seq',
+                     guide = guide_legend(title = 'Wine Quality', 
+                                          reverse = T,
+                                          override.aes = list(alpha = 1,
+                                                              size = 2))) +
+  ggtitle("Alcohol by Chlorides for Differing Quality White Wines") + 
+  theme(plot.title = element_text(hjust = 0.25, size = 19, face = 'bold'),
+        panel.border = element_rect(colour = "black", fill = NA)) 
 ```
+
 
 ### Description Two
 
 
+
+
 ### Plot Three
 ```{r echo=FALSE, Plot_Three}
+rsda <- ggplot(aes(x = residual.sugar, y = density), data = wineData) + 
+  geom_point(aes(color = alcohol)) + 
+  coord_cartesian(xlim = c(0, 8.2 + 1.5*rsiqr), ylim = c(0.987, 1.005)) + 
+  labs(x = expression(Residual~Sugar~(g/dm^3)), 
+       y = expression(Density~(g/cm^3)), 
+       title = "Density by Residual Sugar colored by Alcohol Percentage") +
+  theme(plot.title = element_text(hjust = 0.5, size = 17, face = 'bold'), 
+        panel.border = element_rect(colour = "black", fill = NA)) 
 
+rsdq <- ggplot(aes(x = residual.sugar, y = density),
+             data = subset(wineData, wineData$quality != 6)) +
+  geom_point(aes(color = factor(quality))) + 
+  scale_color_brewer(type = 'seq') +
+  coord_cartesian(xlim = c(0, 8.2 + 1.5*rsiqr)) +
+  labs(x = expression(Residual~Sugar~(g/dm^3)), y = expression(Density~(g/cm^3)),
+       title = "Density by Residual Sugar colored by Quality") +
+  theme(plot.title = element_text(hjust = 0.5, size = 17, face = 'bold'),
+        panel.border = element_rect(colour = "black", fill = NA))
+
+grid.arrange(rsda, rsdq)
 ```
 
 ### Description Three
+Density and residual sugar
+
+
+
 
 ------
 
